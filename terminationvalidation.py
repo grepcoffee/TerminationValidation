@@ -44,21 +44,8 @@ def adsearching(input):
                 where_clause= nusrid,
                 base_dn=COMPANYBASEDN
             )
+##
 
-        for row in q.get_results():
-            EmployeeID = (row['employeeID'])
-            LastLogon = (pyadutils.convert_datetime(row['lastLogonTimeStamp']))
-            Name = (row['mailNickname'])
-            LastLogonDate = LastLogon.strftime('%m/%d/%Y')
-
-        for i in dividedlist:
-            if EmployeeID in i:
-            timediff = dt.strptime(LastLogonDate, '%m/%d/%Y') - dt.strptime(i[7],'%m/%d/%Y')
-            if timediff.days > 0:
-            print("User " + Name + " Was Terminated on "+str(i[7])+" and last logged in on "+LastLogonDate+" which is "+str(timediff.days)+" days after his termination")
-
-    except ValueError as e :
-        print("Error "+str(e)+" in user "+Name+" Check HTML and AD Manually")
-
+###
 print("\n")
 adsearching(dividedlist)
