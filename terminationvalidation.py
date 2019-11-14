@@ -44,7 +44,7 @@ def adsearching(input):
         EmployeeID = (row['employeeID'])
         LastLogon = (pyadutils.convert_datetime(row['lastLogonTimeStamp']))
         Name = (row['mailNickname'])
-        LastLogonDate = LastLogon.strftime('%m/%d/%y')
+        LastLogonDate = LastLogon.strftime('%m/%d/%Y')
         print(Name, EmployeeID, LastLogonDate)
 
 #Script Terminal Output
